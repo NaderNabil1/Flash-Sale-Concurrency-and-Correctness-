@@ -272,22 +272,6 @@ In production, you'll want to monitor:
 6. **Order statuses** - how many pending vs paid vs cancelled
 7. **Deadlocks** - database deadlock errors (should be pretty rare with this setup)
 
-### Custom Metrics (Optional)
-
-If you want to track your own metrics, you can use the cache:
-
-```php
-Cache::increment("metrics:holds:created:{$productId}");
-Cache::increment("metrics:holds:failed:{$productId}");
-Cache::increment("metrics:webhooks:processed");
-```
-
-Then check them:
-```bash
-php artisan tinker
->>> Cache::get('metrics:holds:created:1');
-```
-
 ## Technical Details
 
 ### How Concurrency Works
